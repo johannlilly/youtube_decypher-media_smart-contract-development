@@ -51,9 +51,9 @@ contract People {
 			Person memory currentPerson;
 			currentPerson = people[i];
 
-			firstNames.push(currentPerson.firstName);
-			lastNames.push(currentPerson.lastName);
-			ages.push(currentPerson.age);
+			firstNames[i] = currentPerson.firstName;
+			lastNames[i] = currentPerson.lastName;
+			ages[i] = currentPerson.age;
 
 		}
  
