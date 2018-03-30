@@ -36,10 +36,11 @@ contract People {
 		// creating an array of strings can be an issue if they are of different lengths.
 		// change strings to a fixed length and pad with spaces => bytes32
 
-
-		bytes32[] firstNames;
-		bytes32[] lastNames;
-		uint[] ages;
+		uint length = people.length;
+		// initialize storage pointer
+		bytes32[] memory firstNames = new bytes32[](length);
+		bytes32[] memory lastNames = new bytes32[](length);
+		uint[] memory ages = new uint[](length);
 
 		for (uint i=0; i < people.length; i++) {
 			// create a new Person structure in memory
@@ -53,7 +54,7 @@ contract People {
 			ages.push(currentPerson.age);
 
 		}
-
+ 
 		// tuple: multiple outputs
 		return (firstNames, lastNames, ages);
 
