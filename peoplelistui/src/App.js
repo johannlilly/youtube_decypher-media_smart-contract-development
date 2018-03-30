@@ -29,6 +29,11 @@ class App extends Component {
     // store a javascript object that stores the state of your component
     // render() takes state as an argument, which tells the app how to render based on state
     // changing state automatically causes re-render to reflect the new state of the UI
+    this.state = {
+      firstNames: [],
+      lastNames: [],
+      ages: []
+    }
   }
   componentWillMount() {
     console.log(ETHEREUM_CLIENT)
