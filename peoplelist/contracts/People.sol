@@ -51,6 +51,9 @@ contract People {
 			firstNames.push(currentPerson.firstName);
 			lastNames.push(currentPerson.lastName);
 			ages.push(currentPerson.age);
+
+			// tuple: multiple outputs
+			return (firstNames, lastNames, ages);
 		}
 
 	}
