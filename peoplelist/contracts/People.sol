@@ -13,7 +13,7 @@ contract People {
 
 	// using 'returns' is helpful 
 	// a function can take a string and convert from bytecode for us, but we are going to specify bytes32
-	function addPerson(bytes32 _firstName, bytes32 _lastName, uint _age) returns (bool added) public {
+	function addPerson(bytes32 _firstName, bytes32 _lastName, uint _age) public returns (bool added) {
 
 		// EVM has memory to store state variables
 		// create struct in memory before adding to array
@@ -34,7 +34,7 @@ contract People {
 	// accessor/getter from array
 	// functions can not return a struct.
 	// return an array of strings (firstName, lastName), and an array of ages.
-	function getPeople() constant returns (bytes32[],bytes32[],uint[]) public {
+	function getPeople() public constant returns (bytes32[],bytes32[],uint[]) {
 		// creating an array of strings can be an issue if they are of different lengths.
 		// change strings to a fixed length and pad with spaces => bytes32
 
