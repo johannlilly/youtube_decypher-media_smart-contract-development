@@ -44,7 +44,7 @@ contract People {
 		bytes32[] memory lastNames = new bytes32[](length);
 		uint[] memory ages = new uint[](length);
 
-		for (uint i=0; i < people.length; i++) {
+		for (uint i=0; i < length; i++) {
 			// create a new Person structure in memory
 			// populate it with the element of the array in focus
 			// feed the properties of the structure from memory into an output array
