@@ -33,3 +33,4 @@ A more robust version of this, including error handling, can be written:
 		console.log(e);
 	});
 
+People.deployed().then(function(instance){ppl = instance;return ppl.addPerson("Will", "Warren", 27);});
