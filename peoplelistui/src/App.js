@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Web3 from 'web3'
+import _ from "lodash"
 
 var ETHEREUM_CLIENT = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
 // these can be added through input fields
@@ -20,11 +21,9 @@ var peopleContractAddress = '0x7c04859ff79d872f3128545fd2a63d47fccb9265'
 // this includes functions created in Solidity for the contract
 
 var peopleContract = ETHEREUM_CLIENT.eth.contract(peopleContractABI).at(peopleContractAddress);
-console.log(peopleContract.getPeople())
-console.log(peopleContract.getPeople())
 
 class App extends Component {
-  constructor(props{
+  constructor(props){
     super(props)
     // store a javascript object that stores the state of your component
     // render() takes state as an argument, which tells the app how to render based on state
@@ -41,18 +40,39 @@ class App extends Component {
     this.setState({
       firstNames: String(data[0]).split(','),
       lastNames: String(data[1]).split(','),
-      ages: String(date2).split(',')
+      ages: String(data[2]).split(',')
     })
   }
   render() {
+    var TableRows = []
+
+    _.each(this.state.firstNames, (value, index) => {
+      TableRows.push(
+        <tr>
+          <td>{ETHEREUM_CLIENT.toAscii(this.state.firstNames[index])}</td>
+          <td>{ETHEREUM_CLIENT.toAscii(this.state.lastNames[index])}</td>
+          <td>{this.state.ages[index]}</td>
+        </tr>
+      )
+    })
+
     return (
       <div className="App">
         <div className="App-header">
         </div>
         <div className="App-content">
-          <pre>{this.state.firstNames}</pre>
-          <pre>{this.state.lastNames}</pre>
-          <pre>{this.state.ages}</pre>
+          <table>
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+              </tr>
+            </thead>
+            <tbody>
+              {TableRows}
+            </tbody>
+          </table>
         </div>
       </div>
     );
