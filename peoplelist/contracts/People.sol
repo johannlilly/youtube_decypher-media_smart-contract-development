@@ -3,7 +3,7 @@ contract People {
 	// define an array that will contain the Person structs
 	Person[] public people;
 
-	struct public Person {
+	struct Person {
 		bytes32 firstName;
 		bytes32 lastName;
 		uint age;
