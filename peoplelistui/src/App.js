@@ -30,13 +30,19 @@ class App extends Component {
     // render() takes state as an argument, which tells the app how to render based on state
     // changing state automatically causes re-render to reflect the new state of the UI
     this.state = {
-      firstNames: [],
-      lastNames: [],
+      firstNames: "",
+      lastNames: "",
       ages: []
     }
   }
   componentWillMount() {
-    console.log(ETHEREUM_CLIENT)
+    // calling data, not the promise, because we are running testRPC locally
+    var data = peopleContract.getPeople()
+    this.setState({
+      firstNames: String(data[0]),
+      lastNames: String(data[1]),
+      ages: String(date2)
+    })
   }
   render() {
     return (
