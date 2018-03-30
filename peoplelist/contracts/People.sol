@@ -4,12 +4,13 @@ contract People {
 	Person[] public people;
 
 	struct public Person {
-		string firstName;
-		string lastName;
+		bytes32 firstName;
+		bytes32 lastName;
 		uint age;
 	}
 
 	// using 'returns' is helpful 
+	// a function can take a string and convert from bytecode for us
 	function addPerson(string _firstName, string _lastName, uint _age) returns (bool added) {
 
 		// EVM has memory to store state variables
@@ -31,7 +32,7 @@ contract People {
 	// accessor/getter from array
 	// functions can not return a struct.
 	// return an array of strings (firstName, lastName), and an array of ages.
-	function getPeople() constant returns (string[],string[],uint[]) {
+	function getPeople() constant returns (bytes32[],bytes32[],uint[]) {
 		// creating an array of strings can be an issue if they are of different lengths.
 		// change strings to a fixed length and pad with spaces.
 	}
