@@ -1,5 +1,5 @@
+var People = artifacts.require("../contracts/People.sol");
+
 module.exports = function(deployer) {
-	deployer.deploy(ConvertLib);
-	deployer.autolink();
 	deployer.deploy(People);
 }
