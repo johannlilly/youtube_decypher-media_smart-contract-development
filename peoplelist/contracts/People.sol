@@ -28,4 +28,12 @@ contract People {
 
 	}
 
+	// accessor/getter from array
+	// functions can not return a struct.
+	// return an array of strings (firstName, lastName), and an array of ages.
+	function getPeople() constant returns (string[],string[],uint[]) {
+		// creating an array of strings can be an issue if they are of different lengths.
+		// change strings to a fixed length and pad with spaces.
+	}
+
 }
